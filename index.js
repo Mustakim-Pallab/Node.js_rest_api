@@ -1,96 +1,3 @@
-
-// const http= require('http');
-// const{handleReqRes}= require('./helpers/HandleReqRes');
-
-
-// const app ={};
-
-// app.config = {
-//     port:3000 ,
-// };
-
-// app.createServer= () =>{
-
-//     const server =http.createServer(app.handleReqRes);
-//     server.listen(app.config.port, ()=>{
-//         console.log(`listening at ${app.config.port}`);
-//     });
-
-// };
-
-// app.handleReqRes=handleReqRes;
-
-// app.createServer();
-
-
-//jhanker mahmood
-
-//**************************************** */
-
-// const express = require('express');
-
-// const app= express();
-// const port =5000;
-
-// const cors =require('cors');
-
-// app.use(cors());
-// app.use(express.json());
-
-// app.get('/',(req,res) =>{
-//     res.send('Running my crud');
-// });
-
-// app.listen(port,()=>{
-//     console.log("Running" );
-// })
-
-// //password: 1EXcFzvnOoIdlOF8
-// //username: tryUser
-
-// // mongo db connection
-
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = "mongodb+srv://tryUser:1EXcFzvnOoIdlOF8@cluster0.hdlnn.mongodb.net/?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-// async function run() {
-
-//     try {
-  
-//       await client.connect();
-  
-//       const database = client.db("insertDB");
-  
-//       const userCollection = database.collection("userCollection");
-  
-//       // create a document to insert
-  
-      
-//       //post to DB
-
-//       var request = require('request');
-  
-
-//       app.post('/users', async(req,res)=>{
-//           console.log(req.body);
-//           console.log("hitting");
-//           res.send('Running my crud');
-//       })
-
-
-  
-//     } finally {
-  
-//       await client.close();
-  
-//     }
-  
-//   }
-  
-
-
-//*********************************************************** */
-
 // Import http library
 const http = require("http");
 // use env variable to define port with default
@@ -102,6 +9,7 @@ require("url")
 
 // import data
 const posts = require("./data");
+
 
 // Import our routers
 const get = require("./get");
