@@ -6,13 +6,14 @@ module.exports = (request, response, next) => {
         data.push(dataChunk)
     })
 
-    request.on("end", () => {
+    request.on("end", () => {  
         request.body = Buffer.concat(data).toString();
    
         if (request.headers["content-type"] === "application/json"){
 
             request.body = JSON.parse(request.body)
         }
+
 
         //mongoo
 
