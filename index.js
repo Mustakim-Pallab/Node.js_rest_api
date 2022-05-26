@@ -98,6 +98,8 @@ const PORT = process.env.PORT || 5000;
 // import the url standard library for parsing query string
 require("url")
 
+//mongo
+
 // import data
 const posts = require("./data");
 
