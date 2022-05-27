@@ -58,5 +58,7 @@ const server = http.createServer((request, response) => {
 // get the server to start listening
 server.listen(PORT, (err) => {
   // error checking
+  const check='www.dhdhhd.com/users/shhhshs';
+  console.log(check.split("/")[2])
   err ? console.error(err) : console.log(`listening on port ${PORT}`);
 });

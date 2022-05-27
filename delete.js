@@ -1,14 +1,16 @@
 module.exports = (request, response) => {
   // remove queries from the url, turn "/posts?id=0" into "/posts"
-  const url = request.url.split("?")[0];
+  const url = request.url.split("/")[1]
+  const id = request.url.split("/")[2]
 
   switch (url) {
-    case '/users':
+    case 'users':
       const { MongoClient, ServerApiVersion } = require('mongodb');
       const uri = "mongodb+srv://tryUser:1EXcFzvnOoIdlOF8@cluster0.hdlnn.mongodb.net/?retryWrites=true&w=majority";
       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-      
+      const ObjectId = require('mongodb').ObjectID;
+
       async function run() {
 
         try {
@@ -19,10 +21,12 @@ module.exports = (request, response) => {
       
           const userCollection = database.collection("userCollection");
       
+          
+
           // create a document to insert
       
-          const id = request.query.searchParams.get("id");
-      const query = { name: "ett" };
+          // const id = request.query.searchParams.get("id");
+      const query = { _id: ObjectId(id) };
       const result = await userCollection.deleteOne(query);
 
       if (result.deletedCount === 1) {
