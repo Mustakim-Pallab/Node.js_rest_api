@@ -1,6 +1,5 @@
 module.exports = (request, response) => {
 
-    // remove queries from the url, turn "/posts?id=0" into "/posts"
     const url = request.url.split("/")[1]
     const id = request.url.split("/")[2]
 
@@ -23,9 +22,9 @@ module.exports = (request, response) => {
       
           const userCollection = database.collection("userCollection");
       
-          // create a document to insert
+         
       
-          // const id = request.query.searchParams.get("id");
+          
           const updatedUser = request.body;
           
           const filter = { _id: ObjectId(id) };
@@ -38,7 +37,8 @@ module.exports = (request, response) => {
 
                 $set: {
 
-                  name: 'skksk'
+                  name: 'goru',
+                  email : 'goru@gmail.com'
           
                 },
 

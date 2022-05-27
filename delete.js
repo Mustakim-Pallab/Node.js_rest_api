@@ -1,5 +1,5 @@
 module.exports = (request, response) => {
-  // remove queries from the url, turn "/posts?id=0" into "/posts"
+
   const url = request.url.split("/")[1]
   const id = request.url.split("/")[2]
 
@@ -21,11 +21,7 @@ module.exports = (request, response) => {
       
           const userCollection = database.collection("userCollection");
       
-          
-
-          // create a document to insert
-      
-          // const id = request.query.searchParams.get("id");
+        
       const query = { _id: ObjectId(id) };
       const result = await userCollection.deleteOne(query);
 
@@ -41,8 +37,6 @@ module.exports = (request, response) => {
 
       response.statusCode = 200;
       response.setHeader("Content-Type", "application/json");
-      // request.posts.splice(id, 1);
-      // response.write(JSON.stringify(request.posts));
       response.end();
             
         

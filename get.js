@@ -20,22 +20,7 @@ module.exports = (request, response) => {
       
           const userCollection = database.collection("userCollection");
       
-          // create a document to insert
-      
-          if (request.query.searchParams.get("id")){
-            const id = request.query.searchParams.get("id")
-            response.statusCode = 200
-            const query ={ _id: ObjectId(id) };
-            const users = await userCollection.findOne(query);
-
-            response.setHeader("Content-Type", "application/json")
-            response.write(JSON.stringify(users))
-            console.log(users);
-            response.end()
-        } else {
-            // else return all posts (index)
-
-
+          // get documents
             const cursor =userCollection.find({});
             const users = await cursor.toArray();
             console.log(users);
@@ -43,11 +28,7 @@ module.exports = (request, response) => {
             response.setHeader("Content-Type", "application/json")
             response.write(JSON.stringify(users))
             response.end()
-        }
 
-        
-      
-         
         } finally {
       
           // await client.close();
@@ -57,10 +38,7 @@ module.exports = (request, response) => {
       }
       
       run().catch(console.dir);
-            // if the id query is present return the show result
-            
-
-            break
+      break
         // response for unexpected get requests
         default:
             response.statusCode = 400

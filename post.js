@@ -2,7 +2,7 @@ module.exports = (request, response) => {
   switch (request.url) {
     case "/users":
       request.posts.push(request.body);
-      // request.body=JSON.parse(request.body)
+      
       console.log(JSON.parse(request.body))
       response.statusCode = 200;
       response.setHeader("Content-Type", "application/json");
