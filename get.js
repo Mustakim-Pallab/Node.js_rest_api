@@ -5,7 +5,7 @@ module.exports = (request, response) => {
 
     switch(url){
 
-        case "users":
+        case "getusers":
         
             const { MongoClient, ServerApiVersion } = require('mongodb');
       const uri = "mongodb+srv://tryUser:1EXcFzvnOoIdlOF8@cluster0.hdlnn.mongodb.net/?retryWrites=true&w=majority";

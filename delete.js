@@ -4,7 +4,7 @@ module.exports = (request, response) => {
   const id = request.url.split("/")[2]
 
   switch (url) {
-    case 'users':
+    case 'deleteusers':
       const { MongoClient, ServerApiVersion } = require('mongodb');
       const uri = "mongodb+srv://tryUser:1EXcFzvnOoIdlOF8@cluster0.hdlnn.mongodb.net/?retryWrites=true&w=majority";
       const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });

@@ -1,6 +1,6 @@
 module.exports = (request, response) => {
   const url = request.url.split("/")[1]
-    if(url=='users')
+    if(url=='postusers')
     {
       console.log(request.body)
       response.statusCode = 200;
