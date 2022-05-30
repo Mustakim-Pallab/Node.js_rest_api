@@ -1,5 +1,6 @@
 module.exports = (request, response) => {
 
+  // const req=request.body;
     const url = request.url.split("/")[1]
     const id = request.url.split("/")[2]
 
@@ -30,17 +31,17 @@ module.exports = (request, response) => {
           const filter = { _id: ObjectId(id) };
             const options = { upsert: true };
             const updateDoc = {
-                // $set: {
-                //     name: updatedUser.name,
-                //     email: updatedUser.email
-                // },
-
                 $set: {
-
-                  name: 'goru',
-                  email : 'goru@gmail.com'
-          
+                    name: updatedUser.name,
+                    email: updatedUser.email
                 },
+
+                // $set: {
+
+                //   name: 'goru',
+                //   email : 'goru@gmail.com'
+          
+                // },
 
 
             };
@@ -49,7 +50,7 @@ module.exports = (request, response) => {
             response.statusCode = 200
             response.setHeader("Content-Type", "application/json")
             
-            response.write(JSON.stringify(result))
+            response.write(JSON.stringify(request.body));
             response.end()
             
         

@@ -1,11 +1,11 @@
 module.exports = (request, response) => {
 
     // remove queries from the url, turn "/posts?id=0" into "/posts"
-    const url = request.url.split("?")[0]
+    const url = request.url.split("/")[1]
 
     switch(url){
 
-        case "/users":
+        case "users":
         
             const { MongoClient, ServerApiVersion } = require('mongodb');
       const uri = "mongodb+srv://tryUser:1EXcFzvnOoIdlOF8@cluster0.hdlnn.mongodb.net/?retryWrites=true&w=majority";

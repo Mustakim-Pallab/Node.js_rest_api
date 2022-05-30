@@ -1,15 +1,14 @@
 module.exports = (request, response) => {
-  switch (request.url) {
-    case "/users":
-      request.posts.push(request.body);
-      
-      console.log(JSON.parse(request.body))
+  const url = request.url.split("/")[1]
+    if(url=='users')
+    {
+      console.log(request.body)
       response.statusCode = 200;
       response.setHeader("Content-Type", "application/json");
-      response.write(JSON.stringify(request.posts));
+      response.write(JSON.stringify(request.body));
 
       //
-      const User=JSON.parse(request.body);
+      const User=request.body;
   
 
       const { MongoClient, ServerApiVersion } = require('mongodb');
@@ -45,12 +44,16 @@ module.exports = (request, response) => {
 
  
       response.end();
-      break;
+    }
+      
+      
 
     // response for unexpected get requests
-    default:
+    else{
+
       response.statusCode = 400;
       response.write(`CANNOT POST ${request.url}`);
       response.end();
-  }
+    }
+      
 };
